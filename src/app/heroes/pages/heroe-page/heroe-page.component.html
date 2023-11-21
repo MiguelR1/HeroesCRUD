@@ -1,0 +1,30 @@
+
+<div
+class="flex flex-column justify-content-center align-items-center
+       sm:flex-row">
+
+  <mat-card class="col-8 sm:col-4">
+
+    <mat-card-header>
+      <mat-card-title>{{ heroe?.superhero }}</mat-card-title>
+      <mat-card-subtitle>{{ heroe?.alter_ego }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+        {{heroe?.characters}}
+      </p>
+
+      <h3><b>Comic: </b>{{heroe?.publisher}}</h3>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="regresar()">Regresar</button>
+    </mat-card-actions>
+    <span class="spacer"></span>
+  </mat-card>
+
+  <mat-card class="col-8 sm:col-4">
+    <img mat-card-image [src]="heroe! | imagenPipe" alt="">
+  </mat-card>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="flex flex-column">
+
+  <h1>Buscar héroe</h1>
+
+    <mat-form-field class="col-12">
+
+      <input type="text"
+            matInput
+            [formControl]="mySug"
+            (input)="getOpciones()"
+            [matAutocomplete]="auto">
+
+      <mat-autocomplete #auto="matAutocomplete"
+      (optionSelected)="optionSelect($event)">
+
+        <mat-option *ngFor="let heroe of options" [value]="heroe" [routerLink]="['/heroe/ver/', heroe.id]">
+          {{heroe.superhero}}
+        </mat-option>
+
+        <mat-option *ngIf="options.length === 0 && mySug.value && mySug.value.length > 0">
+          <!-- En este if aparece prmera que las opciones sean igual a 0, que haya un valor osea que no sea null y ademas que sean mayor a cero es decir que la persona escriba y no consiga resultado -->
+          No hay resultados para {{mySug.value}}
+        </mat-option>
+
+      </mat-autocomplete>
+
+    </mat-form-field>
+
+</div>
+
+
+
+
+{{ heroeSeleccion | json }}

@@ -1,0 +1,56 @@
+
+<h1>Crear heroe</h1>
+<span class="spacer"></span>
+
+<div class="grid">
+
+  <div class="col-6">
+    <mat-card>
+      <mat-card-content>
+          <form [formGroup]="heroeForm" (ngSubmit)="guardar()">
+            <div class="grid">
+              <mat-form-field class="col-6">
+                <mat-label>Nombre de superherero</mat-label>
+                <input matInput formControlName="superhero" required>
+              </mat-form-field>
+              <mat-form-field class="col-6">
+                <mat-label>Alter ego</mat-label>
+                <input matInput formControlName="alter_ego" required>
+              </mat-form-field>
+            </div>
+            <div class="flex flex-column">
+              <mat-form-field>
+                <mat-label>Primera aparición</mat-label>
+                <input matInput formControlName="first_appearance" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Personajes: </mat-label>
+                <input matInput formControlName="characters" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Comic: </mat-label>
+                <mat-select formControlName="publisher" required>
+                  <mat-option value="one">DC</mat-option>
+                  <mat-option value="two">Marvel</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Url de imagen: </mat-label>
+                <input matInput formControlName="img" required>
+              </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" type="submit">Guardar</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+  </div>
+
+  <div class="col-6">
+    <mat-card>
+      <img mat-card-image [src]="heroe.img" alt="">
+    </mat-card>
+  </div>
+
+</div>
+
+

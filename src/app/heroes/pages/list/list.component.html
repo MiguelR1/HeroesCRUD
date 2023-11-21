@@ -1,0 +1,29 @@
+<div class="grid m-4">
+
+    <div class="col-12 md:col-6 lg:col-3"
+         *ngFor="let heroe of heroes">
+
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{heroe.superhero}}</mat-card-title>
+          <mat-card-subtitle>{{heroe.alter_ego}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img class="mt-3 mb-3" mat-card-image [src]="heroe | imagenPipe">
+
+        <mat-card-content>
+          <p>
+            {{heroe.characters}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" [routerLink]="['/heroe/editar/', heroe.id]">Editar</button>
+          <span class="spacer"></span>
+          <button mat-raised-button (click)="borrar(heroe.id)" color="warn">Borrar</button>
+          <span class="spacer"></span>
+          <button mat-raised-button color="basic" (click)="ver(heroe.id)" [routerLink]="['/heroe/ver/', heroe.id]">Más</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </div>
