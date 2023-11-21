@@ -5,7 +5,8 @@ import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   {
     path: 'heroe',
-    loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule)
+    loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule),
+
   },
   { path:'404', component:ErrorComponent },
   { path:'', redirectTo: 'heroe', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
